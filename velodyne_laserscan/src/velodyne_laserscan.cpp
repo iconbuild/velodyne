@@ -76,7 +76,7 @@ VelodyneLaserScan::VelodyneLaserScan(const rclcpp::NodeOptions & options)
   sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
     "velodyne_points", rclcpp::QoS(10),
     std::bind(&VelodyneLaserScan::recvCallback, this, std::placeholders::_1));
-  pub_ = this->create_publisher<sensor_msgs::msg::LaserScan>("scan", 10);
+  pub_ = this->create_publisher<sensor_msgs::msg::LaserScan>("velodyne_scan", 10);
 }
 
 void VelodyneLaserScan::recvCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
